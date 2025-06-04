@@ -9,20 +9,29 @@ jobs:
   build-deploy:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v3
-      with:
-        fetch-depth: 0
+      - uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
 
-    - name: Setup .NET
-      uses: actions/setup-dotnet@v3
-      with:
-        dotnet-version: '9.0.x'
+      - name: Setup .NET
+        uses: actions/setup-dotnet@v3
+        with:
+          dotnet-version: '9.0.x'
 
-    - name: Build
-      run: dotnet publish -c Release -o publish
+      - name: Build
+        run: dotnet publish -c Release -o publish
 
-    - name: Deploy to GitHub Pages
-      uses: peaceiris/actions-gh-pages@v4
-      with:
-        github_token: ${{ secrets.GITHUB_TOKEN }}
-        publish_dir: ./publish/wwwroot
+      # Update base href in index.html to /harveerportfolio/
+      - name: Update base href for GitHub Pages
+        run: sed -i 's|<base href="/">|<base href="/harveerportfolio/">|' publish/wwwroot/index.html
+
+      # Add 404.html to handle refresh routing on GitHub Pages
+      - name: Add 404.html for SPA routing
+        run: |
+          echo '<!DOCTYPE html><html><head><meta http-equiv="refresh" content="0; url=./index.html" /></head><body></body></html>' > publish/wwwroot/404.html
+
+      - name: Deploy to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v4
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./publish/wwwroot
