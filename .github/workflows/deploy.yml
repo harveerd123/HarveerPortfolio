@@ -26,7 +26,7 @@ jobs:
           echo '<!DOCTYPE html><html><head><meta http-equiv="refresh" content="0; url=./index.html" /></head><body></body></html>' > publish/wwwroot/404.html
 
       - name: Add .nojekyll file
-        run: touch Release/wwwroot/.nojekyll
+        run: touch publish/wwwroot/.nojekyll
       
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v4
