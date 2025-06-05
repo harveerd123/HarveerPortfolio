@@ -1,7 +1,7 @@
 {
   "mainAssemblyName": "HarveerPortfolio",
   "resources": {
-    "hash": "sha256-plijH4oNHO4UtcrJtNSrQhVX9XqVKkjuciidfQOCWX8=",
+    "hash": "sha256-vo8RoXkBgnDgmc5mZXph6tX7GB2X2HaWcpPXx0ZZARs=",
     "fingerprinting": {
       "Castle.Core.fqg0tyy8au.wasm": "Castle.Core.wasm",
       "Microsoft.AspNetCore.Components.e4lxhxzopd.wasm": "Microsoft.AspNetCore.Components.wasm",
@@ -115,7 +115,7 @@
       "mscorlib.8r1easklxe.wasm": "mscorlib.wasm",
       "netstandard.6875s2clt9.wasm": "netstandard.wasm",
       "System.Private.CoreLib.i9kcppnab0.wasm": "System.Private.CoreLib.wasm",
-      "HarveerPortfolio.pfbtmne3d1.wasm": "HarveerPortfolio.wasm",
+      "HarveerPortfolio.lx9o8xe5bk.wasm": "HarveerPortfolio.wasm",
       "Microsoft.TestPlatform.CoreUtilities.resources.wf7t3muybp.wasm": "Microsoft.TestPlatform.CoreUtilities.resources.wasm",
       "Microsoft.VisualStudio.TestPlatform.ObjectModel.resources.7rhq4qvps1.wasm": "Microsoft.VisualStudio.TestPlatform.ObjectModel.resources.wasm",
       "Microsoft.TestPlatform.CommunicationUtilities.resources.9j7t5f16c8.wasm": "Microsoft.TestPlatform.CommunicationUtilities.resources.wasm",
@@ -318,7 +318,7 @@
       "System.ezrw3d5kw2.wasm": "sha256-ViNRvhyxlTugIlqJHamw/HwbXlg/YWcrANmxuTM0tfg=",
       "mscorlib.8r1easklxe.wasm": "sha256-nEUKEuxWhLjXw2sNqaiq7AHPSOVUS5UlTsCXWELYwvM=",
       "netstandard.6875s2clt9.wasm": "sha256-KmgY4rYLJVK1EC3zh9z/2cC+4G/OzrQqG6JgdgZybSg=",
-      "HarveerPortfolio.pfbtmne3d1.wasm": "sha256-2+5DVwfCZmWquGLx7MwkxTkgbWfO5+fj0epKTCC/zWc="
+      "HarveerPortfolio.lx9o8xe5bk.wasm": "sha256-SZSi9+ImlJ9EFrZ6GaPIIKwKG5SAUPrNazkqG9WYhEM="
     },
     "satelliteResources": {
       "cs": {
