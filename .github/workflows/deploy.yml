@@ -19,12 +19,15 @@ jobs:
           dotnet-version: '9.0.x'
 
       - name: Build
-        run: dotnet publish -c Release -o publish /p:BaseHref=/harveerportfolio/
+        run: dotnet publish -c Release -o publish 
 
       - name: Add 404.html for SPA routing
         run: |
           echo '<!DOCTYPE html><html><head><meta http-equiv="refresh" content="0; url=./index.html" /></head><body></body></html>' > publish/wwwroot/404.html
 
+      - name: Add .nojekyll file
+        run: touch Release/wwwroot/.nojekyll
+      
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v4
         with:
