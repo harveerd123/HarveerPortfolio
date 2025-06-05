@@ -2,32 +2,31 @@ name: Build and Deploy Blazor WASM to GitHub Pages
 
 on:
   push:
-    branches:
-      - master
+    branches: [ master ]
 
 jobs:
-  build-deploy:
+  deploy-to-github-pages:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
-        with:
-          fetch-depth: 0
 
-      - name: Setup .NET
+      - name: Setup .NET 9 SDK
         uses: actions/setup-dotnet@v3
         with:
           dotnet-version: '9.0.x'
 
-      - name: Build
-        run: dotnet publish -c Release -o publish 
+      - name: Publish Blazor project
+        run: dotnet publish -c Release -o publish
 
-      - name: Add 404.html for SPA routing
-        run: |
-          echo '<!DOCTYPE html><html><head><meta http-equiv="refresh" content="0; url=./index.html" /></head><body></body></html>' > publish/wwwroot/404.html
+      - name: Change base href in index.html
+        run: sed -i 's|<base href="/" />|<base href="/harveerportfolio/" />|' publish/wwwroot/index.html
+
+      - name: Copy index.html to 404.html for SPA routing
+        run: cp publish/wwwroot/index.html publish/wwwroot/404.html
 
       - name: Add .nojekyll file
         run: touch publish/wwwroot/.nojekyll
-      
+
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v4
         with:
